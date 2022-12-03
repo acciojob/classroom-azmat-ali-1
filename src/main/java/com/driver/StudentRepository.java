@@ -57,8 +57,8 @@ public class StudentRepository {
     }
     public List<String> getAllStudents(){
         List<String> list = new ArrayList<>();
-        for (String i : studentMap.keySet()){
-            list.add(i);
+        for (Student i : studentMap.values()){
+            list.add(i.getName());
         }
         return list;
     }
@@ -66,6 +66,7 @@ public class StudentRepository {
         List<String> listOfTecher = new ArrayList<>();
        if(pair.containsKey(name)){
            listOfTecher = pair.get(name);
+           pair.remove(name);
        }
        for(String i : listOfTecher){
            teacherMap.remove(i);
